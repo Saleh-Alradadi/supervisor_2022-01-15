@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Supervisor_">
         <activity
-            android:name=".Random"
+            android:name=".AddName"
+            android:exported="false" />
+        <activity
+            android:name=".Randoms"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
