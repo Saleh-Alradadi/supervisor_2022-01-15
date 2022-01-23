@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Supervisor_">
         <activity
+            android:name=".ListNameItem"
+            android:exported="false" />
+        <activity
             android:name=".AddName"
             android:exported="false" />
         <activity

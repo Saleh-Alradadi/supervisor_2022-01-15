@@ -41,28 +41,32 @@
                 android:layout_height="50dp"
                 android:hint="@string/name"
                 android:inputType="text"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:layout_margin="5dp"/>
             <EditText
                 android:id="@+id/NewUser"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/user"
                 android:inputType="text"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:layout_margin="5dp"/>
             <EditText
                 android:id="@+id/NewSales"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/sales"
                 android:inputType="text"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:layout_margin="5dp" />
             <EditText
                 android:id="@+id/NewDayOff"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/off_day"
                 android:inputType="text"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:layout_margin="5dp"/>
 
             <Button
                 android:id="@+id/AddNewEmployee"
