@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -41,6 +42,19 @@ public class ListNameItem extends AppCompatActivity {
                 //RecyclerView
                 mUsers_adapter.setUsers(usersDBS);
 
+            }
+        });
+        mUsers_adapter.onItemClickListner(new Users_Adapter.OnItemclickListner() {
+            @Override
+            public void onItemClick(UsersDB User) {
+                Intent i = new Intent(ListNameItem.this, AddName.class);
+                i.putExtra(AddName.EXTRA_ID, User.getId());
+                i.putExtra(AddName.EXTRA_NAME, User.getNamedb());
+                i.putExtra(AddName.EXTRA_USER, User.getUserdb());
+                i.putExtra(AddName.EXTRA_SALES, User.getSalesdb());
+                i.putExtra(AddName.EXTRA_DAYOFF, User.getDayOffdb());
+                i.putExtra(AddName.EXTRA_EMAIL, User.getEmaildb());
+                startActivity(i);
             }
         });
 

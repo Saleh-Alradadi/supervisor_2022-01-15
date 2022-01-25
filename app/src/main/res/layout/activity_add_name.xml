@@ -42,7 +42,8 @@
                 android:hint="@string/name"
                 android:inputType="text"
                 android:importantForAutofill="no"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:maxLines="1"/>
             <EditText
                 android:id="@+id/NewUser"
                 android:layout_width="match_parent"
@@ -50,15 +51,17 @@
                 android:hint="@string/user"
                 android:inputType="text"
                 android:importantForAutofill="no"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:maxLines="1"/>
             <EditText
                 android:id="@+id/NewSales"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/sales"
-                android:inputType="text"
+                android:inputType="number"
                 android:importantForAutofill="no"
-                android:layout_margin="5dp" />
+                android:layout_margin="5dp"
+                android:maxLines="1"/>
             <EditText
                 android:id="@+id/NewDayOff"
                 android:layout_width="match_parent"
@@ -66,14 +69,25 @@
                 android:hint="@string/off_day"
                 android:inputType="text"
                 android:importantForAutofill="no"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:maxLines="1"/>
+            <EditText
+                android:id="@+id/NewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Email"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                android:layout_margin="5dp"
+                android:maxLines="1"/>
 
             <Button
                 android:id="@+id/AddNewEmployee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_new_name"
-                android:layout_marginTop="50dp"/>
+                android:text="@string/add_New_Name"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="5dp"/>
 
         </LinearLayout>
     </LinearLayout>

@@ -11,4 +11,7 @@
     <string name="Name_App">Name App</string>
     <string name="Random">Random</string>
     <string name="Name_btn">Name btn</string>
+    <string name="email">Email</string>
+    <string name="add_New_Name">Add New Employee Info</string>
+    <string name="Update_New_Name">Update Employee Info</string>
 </resources>

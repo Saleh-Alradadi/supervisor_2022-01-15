@@ -15,12 +15,15 @@ public class UsersDB {
     private String Userdb;
     private String Salesdb;
     private String DayOffdb;
+    private String Emaildb;
 
-    public UsersDB(String Namedb, String Userdb, String Salesdb, String DayOffdb ) {
+
+    public UsersDB(String Namedb, String Userdb, String Salesdb, String DayOffdb ,String Emaildb ) {
         this.Namedb = Namedb;
         this.Userdb = Userdb;
         this.Salesdb = Salesdb;
         this.DayOffdb = DayOffdb;
+        this.Emaildb = Emaildb;
 
     }
 
@@ -48,5 +51,9 @@ public class UsersDB {
 
     public String getDayOffdb() {
         return this.DayOffdb;
+    }
+
+    public String getEmaildb() {
+        return this.Emaildb;
     }
 }

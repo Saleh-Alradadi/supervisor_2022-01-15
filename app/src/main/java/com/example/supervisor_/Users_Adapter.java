@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHolder> {
-    private List<UsersDB> mUserList = new ArrayList<>();
+    private static List<UsersDB> mUserList = new ArrayList<>();
+    private static OnItemclickListner mListner;
 
     @NonNull
     @Override
@@ -52,6 +53,28 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
             textViewNameList = itemView.findViewById(R.id.Name_Text_viewList);
             textViewUserList = itemView.findViewById(R.id.User_Text_viewList);
             textViewDayOffList = itemView.findViewById(R.id.DayOff_Text_viewList);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    int index = getAdapterPosition();
+                    if (mListner != null && index != RecyclerView.NO_POSITION){
+                        mListner.onItemClick(mUserList.get(index));
+                    }
+
+                }
+            });
+
         }
+    }
+
+    public interface OnItemclickListner{
+        void onItemClick(UsersDB User);
+    }
+
+    public void onItemClickListner(OnItemclickListner listner){
+        mListner = listner;
     }
 }

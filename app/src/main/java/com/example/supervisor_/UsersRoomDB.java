@@ -15,7 +15,7 @@ public abstract class UsersRoomDB extends RoomDatabase {
 
     public abstract UsersDBdao usersDBdao();
 
-    //Singlton
+    //Singleton
     public static  synchronized UsersRoomDB getInstance(Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
@@ -38,21 +38,23 @@ public abstract class UsersRoomDB extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
+
         }
     };
 
     private static class PobulateDataAsyncTask extends AsyncTask<Void , Void , Void>{
 
         private UsersDBdao mUsersDBdao;
+
         PobulateDataAsyncTask(UsersRoomDB db){
             mUsersDBdao = db.usersDBdao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            mUsersDBdao.insert(new UsersDB("khaled", "OS5000" , "12" ,"monday"));
-            mUsersDBdao.insert(new UsersDB("Ali", "OS5000" , "10" ,"FriDay"));
-            mUsersDBdao.insert(new UsersDB("Ahmed", "OS5020" , "11" ,"sunday"));
+            mUsersDBdao.insert(new UsersDB("khaled", "OS5000" , "12" ,"monday","SS@S.com"));
+            mUsersDBdao.insert(new UsersDB("Ali", "OS5000" , "10" ,"FriDay","SS@S.com"));
+            mUsersDBdao.insert(new UsersDB("Ahmed", "OS5020" , "11" ,"sunday","SS@S.com"));
             return null;
         }
     }
