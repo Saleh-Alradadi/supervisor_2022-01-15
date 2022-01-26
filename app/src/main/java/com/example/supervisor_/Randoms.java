@@ -22,9 +22,11 @@ import java.util.List;
 public class Randoms extends AppCompatActivity {
 
     TextView textViewNames1;
-//    String getName = "" , getUser = "" , getSales = "" , getDayOff = "";
-//
-//    private UsersViewModel mUsersViewModel;
+    String getName = "" , getUser = "" , getSales = "" , getDayOff = "";
+
+    private UsersViewModel mUsersViewModel;
+    private Users_Adapter mUsers_adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +35,17 @@ public class Randoms extends AppCompatActivity {
         setTitle("Random");
 
 
-//        mUsersViewModel = ViewModelProviders.of(this).get(UsersViewModel.class);
-//        mUsersViewModel.getAllUsers().observe(this, new Observer<List<UsersDB>>() {
-//            @Override
-//            public void onChanged(List<UsersDB> usersDBS) {
-//                //Update UI
-//                //RecyclerView
-//                Toast.makeText(Randoms.this,"this Method is Work",Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
+        mUsersViewModel = ViewModelProviders.of(this).get(UsersViewModel.class);
+        mUsersViewModel.getAllUsers().observe(this, new Observer<List<UsersDB>>() {
+            @Override
+            public void onChanged(List<UsersDB> usersDBS) {
+                //Update UI
+                //RecyclerView
+                Toast.makeText(Randoms.this,"this Method is Work",Toast.LENGTH_LONG).show();
+
+
+            }
+        });
 
         textViewNames1 = findViewById(R.id.Names);
         textViewNames1.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +57,7 @@ public class Randoms extends AppCompatActivity {
 
             }
         });
+
 
 
 //        ArrayList<random_names> Users1 = new ArrayList<>();

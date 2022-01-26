@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListNameItem extends AppCompatActivity {
@@ -42,6 +43,7 @@ public class ListNameItem extends AppCompatActivity {
                 //RecyclerView
                 mUsers_adapter.setUsers(usersDBS);
 
+
             }
         });
         mUsers_adapter.onItemClickListner(new Users_Adapter.OnItemclickListner() {
@@ -57,6 +59,10 @@ public class ListNameItem extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+
 
 
     }
