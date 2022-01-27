@@ -56,10 +56,6 @@ public class AddName extends AppCompatActivity {
             newDayOff.setText(i.getStringExtra(EXTRA_DAYOFF));
             newEmail.setText(i.getStringExtra(EXTRA_EMAIL));
 
-
-
-
-
         }else{
             //insert
             setTitle("Add new Employee Info");
@@ -96,8 +92,8 @@ public class AddName extends AppCompatActivity {
         }
         if (editMode){
             usersDBObj.setId(mId);
-
             mAddNameViewModel.update(usersDBObj);
+
         }else {
             mAddNameViewModel.insert(usersDBObj);
         }

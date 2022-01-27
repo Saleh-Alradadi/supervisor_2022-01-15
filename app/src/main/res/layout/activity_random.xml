@@ -30,13 +30,21 @@
                 android:text="Names"
                 android:textSize="30dp" />
 
-            <TextView
-                android:id="@+id/Names"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Names"
-                android:textSize="20dp"
-                android:layout_margin="15dp"/>
+
+
+                <TextView
+                    android:id="@+id/NamesOfList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Names"
+                    android:textSize="20dp"
+                    android:layout_margin="15dp"/>
+
+
+
+
+
+
         </LinearLayout>
 
         <LinearLayout

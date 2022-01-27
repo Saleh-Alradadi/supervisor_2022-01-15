@@ -27,7 +27,7 @@ public abstract class UsersRoomDB extends RoomDatabase {
         return  instance;
     }
 
-    private static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback(){
+    private static final RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback(){
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
@@ -44,7 +44,7 @@ public abstract class UsersRoomDB extends RoomDatabase {
 
     private static class PobulateDataAsyncTask extends AsyncTask<Void , Void , Void>{
 
-        private UsersDBdao mUsersDBdao;
+        private final UsersDBdao mUsersDBdao;
 
         PobulateDataAsyncTask(UsersRoomDB db){
             mUsersDBdao = db.usersDBdao();

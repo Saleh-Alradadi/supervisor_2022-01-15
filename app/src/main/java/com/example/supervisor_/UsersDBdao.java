@@ -21,9 +21,13 @@ public interface UsersDBdao {
     void delete (UsersDB user);
 
 
-    @Query("DELETE From UsersTable")
+    @Query("DELETE FROM UsersTable")
     void deleteALLUsers();
 
-    @Query("SELECT * From UsersTable")
+    @Query("SELECT * FROM UsersTable")
     LiveData<List<UsersDB>> getALLUsers();
+
+
+
+
 }

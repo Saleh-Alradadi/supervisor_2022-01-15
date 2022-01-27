@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,10 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHolder> {
+
     private static List<UsersDB> mUserList = new ArrayList<>();
     private static OnItemclickListner mListner;
-
-
 
 
 
@@ -36,6 +36,9 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
         holder.textViewNameList.setText(currentUsers.getNamedb());
         holder.textViewUserList.setText(currentUsers.getUserdb());
         holder.textViewDayOffList.setText(currentUsers.getDayOffdb());
+
+
+
 
     }
 
@@ -55,6 +58,8 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
         public TextView textViewUserList;
         public TextView textViewDayOffList;
 
+
+
         public userViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -62,9 +67,10 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
             textViewUserList = itemView.findViewById(R.id.User_Text_viewList);
             textViewDayOffList = itemView.findViewById(R.id.DayOff_Text_viewList);
 
+
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
-
-
                 @Override
                 public void onClick(View view) {
                     int index = getAdapterPosition();
@@ -84,5 +90,9 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
 
     public void onItemClickListner(OnItemclickListner listner){
         mListner = listner;
+    }
+
+    public UsersDB getUserAt(int pos){
+        return mUserList.get(pos);
     }
 }

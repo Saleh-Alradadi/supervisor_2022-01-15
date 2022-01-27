@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +13,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,13 +25,11 @@ import java.util.List;
 
 @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 public class Randoms extends AppCompatActivity {
+    public static List<UsersDB> arrayListUser = new ArrayList<>();
 
     TextView textViewNames1;
     String getName = "" , getUser = "" , getSales = "" , getDayOff = "";
-
     private UsersViewModel mUsersViewModel;
-    private Users_Adapter mUsers_adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +37,43 @@ public class Randoms extends AppCompatActivity {
         setContentView(R.layout.activity_random);
         setTitle("Random");
 
+        textViewNames1 = findViewById(R.id.NamesOfList);
 
-        mUsersViewModel = ViewModelProviders.of(this).get(UsersViewModel.class);
+
+
+                mUsersViewModel = ViewModelProviders.of(this).get(UsersViewModel.class);
         mUsersViewModel.getAllUsers().observe(this, new Observer<List<UsersDB>>() {
             @Override
             public void onChanged(List<UsersDB> usersDBS) {
                 //Update UI
-                //RecyclerView
-                Toast.makeText(Randoms.this,"this Method is Work",Toast.LENGTH_LONG).show();
+                arrayListUser = usersDBS;
+
+                String SS = "";
+
+                for (int i = 0; i <arrayListUser.size(); i++) {
+
+                    UsersDB S = arrayListUser.get(i);
+                    if(i == 0){
+                        SS = S.getNamedb();
+                    }else{
+                        SS = SS + " , " + S.getNamedb();
+                    }
+                }
+
+                textViewNames1.setText(SS);
+
+
+
+
+
 
 
             }
         });
 
-        textViewNames1 = findViewById(R.id.Names);
+
+
+
         textViewNames1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

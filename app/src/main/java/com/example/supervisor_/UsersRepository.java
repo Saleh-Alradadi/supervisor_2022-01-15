@@ -49,7 +49,6 @@ public class UsersRepository {
 
 
     private static class InsertAsyncTask extends AsyncTask<UsersDB, Void ,Void>{
-
         public UsersDBdao mUsersDBdao;
         public InsertAsyncTask(UsersDBdao usersDBdao){
             mUsersDBdao = usersDBdao;
@@ -61,6 +60,7 @@ public class UsersRepository {
             return null;
         }
     }
+
 
     private static class DeleteAsyncTask extends AsyncTask<UsersDB, Void ,Void>{
 
