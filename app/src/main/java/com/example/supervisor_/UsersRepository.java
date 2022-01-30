@@ -8,13 +8,13 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class UsersRepository {
-    private UsersDBdao mUersDBdao;
+    private UsersDBdao mUsersDBad;
     private LiveData<List<UsersDB>> getAllUsers;
 
     public UsersRepository(Application app){
         UsersRoomDB db = UsersRoomDB.getInstance(app);
-        mUersDBdao = db.usersDBdao();
-        getAllUsers = mUersDBdao.getALLUsers();
+        mUsersDBad = db.usersDBdao();
+        getAllUsers = mUsersDBad.getALLUsers();
     }
 
     //operation
@@ -22,18 +22,18 @@ public class UsersRepository {
 
     //insert
     public void insert(UsersDB usersDB){
-    new InsertAsyncTask(mUersDBdao).execute(usersDB);
+    new InsertAsyncTask(mUsersDBad).execute(usersDB);
     }
 
     //delete
     public void delete(UsersDB usersDB){
-        new DeleteAsyncTask(mUersDBdao).execute(usersDB);
+        new DeleteAsyncTask(mUsersDBad).execute(usersDB);
 
     }
 
     //update
     public void update(UsersDB usersDB){
-        new UpdateAsyncTask(mUersDBdao).execute(usersDB);
+        new UpdateAsyncTask(mUsersDBad).execute(usersDB);
     }
 
     //getAllUsers
@@ -44,9 +44,8 @@ public class UsersRepository {
 
     //deleteAllUsers
     public void deleteAllUsers(){
-        new DeleteAllUsersAsyncTask(mUersDBdao).execute();
+        new DeleteAllUsersAsyncTask(mUsersDBad).execute();
     }
-
 
     private static class InsertAsyncTask extends AsyncTask<UsersDB, Void ,Void>{
         public UsersDBdao mUsersDBdao;
@@ -60,7 +59,6 @@ public class UsersRepository {
             return null;
         }
     }
-
 
     private static class DeleteAsyncTask extends AsyncTask<UsersDB, Void ,Void>{
 

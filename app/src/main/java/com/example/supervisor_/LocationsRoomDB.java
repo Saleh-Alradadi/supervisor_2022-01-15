@@ -9,17 +9,18 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = UsersDB.class , version = 1, exportSchema = false)
-public abstract class UsersRoomDB extends RoomDatabase {
-    private static UsersRoomDB instance;
+@Database(entities = LocationsDB.class , version = 1, exportSchema = false)
+public abstract class LocationsRoomDB extends RoomDatabase {
 
-    public abstract UsersDBdao usersDBdao();
+    private static LocationsRoomDB instance;
+
+    public abstract LocationsDaoDB mlocationsDaoDB();
 
     //Singleton
-    public static  synchronized UsersRoomDB getInstance(Context context){
+    public static  synchronized LocationsRoomDB getInstance(Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    UsersRoomDB.class,"Users--dataBase")
+                    LocationsRoomDB.class,"Locationsٌ--dataBase")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallBack)
                     .build();
@@ -31,7 +32,7 @@ public abstract class UsersRoomDB extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-            new PobulateDataAsyncTask(instance).execute();
+            new LocationsRoomDB.PopulateDataAsyncTask(instance).execute();
         }
 
         @Override
@@ -41,21 +42,22 @@ public abstract class UsersRoomDB extends RoomDatabase {
         }
     };
 
-    private static class PobulateDataAsyncTask extends AsyncTask<Void , Void , Void>{
+    private static class PopulateDataAsyncTask extends AsyncTask<Void , Void , Void> {
 
-        private final UsersDBdao mUsersDBdao;
+        private final LocationsDaoDB mLocationsDaoDB;
 
-        PobulateDataAsyncTask(UsersRoomDB db){
-            mUsersDBdao = db.usersDBdao();
+        PopulateDataAsyncTask(LocationsRoomDB db){
+            mLocationsDaoDB = db.mlocationsDaoDB();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            mUsersDBdao.insert(new UsersDB("khaled", "OS5000" , "12" ,"monday","SS@S.com"));
-            mUsersDBdao.insert(new UsersDB("Ali", "OS5000" , "10" ,"FriDay","SS@S.com"));
-            mUsersDBdao.insert(new UsersDB("Ahmed", "OS5020" , "11" ,"sunday","SS@S.com"));
+            mLocationsDaoDB.insert(new LocationsDB("alhilton" , "A"));
+            mLocationsDaoDB.insert(new LocationsDB("dar alaiman", "B"));
+            mLocationsDaoDB.insert(new LocationsDB("almahkkamh", "C"));
             return null;
         }
     }
 
 }
+

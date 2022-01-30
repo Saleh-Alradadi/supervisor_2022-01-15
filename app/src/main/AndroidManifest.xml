@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Supervisor_">
         <activity
+            android:name=".AddLoaction"
+            android:exported="false" />
+        <activity
+            android:name=".AddNewLoaction"
+            android:exported="false" />
+        <activity
+            android:name=".LoactionsAdd"
+            android:exported="false" />
+        <activity
+            android:name=".LoactionsList"
+            android:exported="false" />
+        <activity
+            android:name=".ListAllRandoms"
+            android:exported="false" />
+        <activity
+            android:name=".ResultRandomName"
+            android:exported="false" />
+        <activity
             android:name=".ListNameItem"
             android:exported="false" />
         <activity

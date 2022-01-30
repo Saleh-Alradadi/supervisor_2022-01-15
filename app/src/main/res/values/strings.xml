@@ -14,4 +14,7 @@
     <string name="email">Email</string>
     <string name="add_New_Name">Add New Employee Info</string>
     <string name="Update_New_Name">Update Employee Info</string>
+    <string name="Plan">Plan</string>
+    <string name="Date">date</string>
+    <string name="Day">day</string>
 </resources>

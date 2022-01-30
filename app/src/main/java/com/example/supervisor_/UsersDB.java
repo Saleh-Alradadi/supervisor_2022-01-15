@@ -6,8 +6,6 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "UsersTable")
 public class UsersDB {
 
-
-
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -24,10 +22,7 @@ public class UsersDB {
         this.Salesdb = Salesdb;
         this.DayOffdb = DayOffdb;
         this.Emaildb = Emaildb;
-
     }
-
-
 
     public void setId(int id) {
         this.id = id;

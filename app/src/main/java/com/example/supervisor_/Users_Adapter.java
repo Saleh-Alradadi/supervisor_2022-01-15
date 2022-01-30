@@ -20,8 +20,6 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
     private static List<UsersDB> mUserList = new ArrayList<>();
     private static OnItemclickListner mListner;
 
-
-
     @NonNull
     @Override
     public userViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,16 +34,11 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
         holder.textViewNameList.setText(currentUsers.getNamedb());
         holder.textViewUserList.setText(currentUsers.getUserdb());
         holder.textViewDayOffList.setText(currentUsers.getDayOffdb());
-
-
-
-
     }
 
     public void setUsers(List<UsersDB> users){
         mUserList = users;
         notifyDataSetChanged();
-
     }
 
     @Override
@@ -59,16 +52,12 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
         public TextView textViewDayOffList;
 
 
-
         public userViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textViewNameList = itemView.findViewById(R.id.Name_Text_viewList);
             textViewUserList = itemView.findViewById(R.id.User_Text_viewList);
             textViewDayOffList = itemView.findViewById(R.id.DayOff_Text_viewList);
-
-
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,10 +66,8 @@ public class Users_Adapter extends RecyclerView.Adapter<Users_Adapter.userViewHo
                     if (mListner != null && index != RecyclerView.NO_POSITION){
                         mListner.onItemClick(mUserList.get(index));
                     }
-
                 }
             });
-
         }
     }
 
