@@ -1,16 +1,14 @@
-package com.example.supervisor_;
+package com.example.supervisor_.UsersInfos;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.NameList;
+import com.example.supervisor_.R;
 
 import java.util.ArrayList;
 import java.util.List;

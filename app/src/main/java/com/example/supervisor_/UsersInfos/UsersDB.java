@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.UsersInfos;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

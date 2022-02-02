@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.LocationsInfos;
 
 import android.app.Application;
 

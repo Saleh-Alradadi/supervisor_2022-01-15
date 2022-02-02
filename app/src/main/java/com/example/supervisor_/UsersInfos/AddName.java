@@ -1,17 +1,15 @@
-package com.example.supervisor_;
+package com.example.supervisor_.UsersInfos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.supervisor_.R;
 
 public class AddName extends AppCompatActivity {
 

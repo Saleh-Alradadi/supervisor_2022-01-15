@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.UsersInfos;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

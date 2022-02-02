@@ -1,12 +1,9 @@
-package com.example.supervisor_;
+package com.example.supervisor_.UsersInfos;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
-
-import java.util.List;
 
 public class AddNameViewModel extends AndroidViewModel {
     private UsersRepository mRepository;

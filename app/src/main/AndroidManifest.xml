@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Supervisor_">
         <activity
-            android:name=".AddLoaction"
+            android:name=".LocationsInfos.AddLoaction"
             android:exported="false" />
         <activity
             android:name=".AddNewLoaction"
             android:exported="false" />
         <activity
-            android:name=".LoactionsAdd"
+            android:name=".LocationsInfos.LoactionsAdd"
             android:exported="false" />
         <activity
-            android:name=".LoactionsList"
+            android:name=".LocationsInfos.LoactionsList"
             android:exported="false" />
         <activity
             android:name=".ListAllRandoms"
@@ -28,10 +28,10 @@
             android:name=".ResultRandomName"
             android:exported="false" />
         <activity
-            android:name=".ListNameItem"
+            android:name=".UsersInfos.ListNameItem"
             android:exported="false" />
         <activity
-            android:name=".AddName"
+            android:name=".UsersInfos.AddName"
             android:exported="false" />
         <activity
             android:name=".Randoms"

@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.LocationsInfos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.supervisor_.R;
 
 public class AddLoaction extends AppCompatActivity {
 

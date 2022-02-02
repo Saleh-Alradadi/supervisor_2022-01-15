@@ -1,34 +1,26 @@
 package com.example.supervisor_;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.supervisor_.UsersInfos.UsersDB;
+import com.example.supervisor_.UsersInfos.UsersViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 public class Randoms extends AppCompatActivity {
+    Button btnPlan1;
+
     public static List<UsersDB> arrayListUser = new ArrayList<>();
-
-
 
     TextView textViewNames1;
     private UsersViewModel mUsersViewModel;
@@ -70,7 +62,15 @@ public class Randoms extends AppCompatActivity {
             }
         });
 
-
+        btnPlan1 = (Button)findViewById(R.id.Plan1);
+        btnPlan1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(Randoms.this,ResultRandomName.class);
+                startActivity(intent);
+            }
+        });
 
 
 

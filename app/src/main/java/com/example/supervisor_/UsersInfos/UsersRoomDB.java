@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.UsersInfos;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -9,18 +9,17 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = LocationsDB.class , version = 1, exportSchema = false)
-public abstract class LocationsRoomDB extends RoomDatabase {
+@Database(entities = UsersDB.class , version = 1, exportSchema = false)
+public abstract class UsersRoomDB extends RoomDatabase {
+    private static UsersRoomDB instance;
 
-    private static LocationsRoomDB instance;
-
-    public abstract LocationsDaoDB mlocationsDaoDB();
+    public abstract UsersDBdao usersDBdao();
 
     //Singleton
-    public static  synchronized LocationsRoomDB getInstance(Context context){
+    public static  synchronized UsersRoomDB getInstance(Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    LocationsRoomDB.class,"Locationsٌ--dataBase")
+                    UsersRoomDB.class,"Users--dataBase")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallBack)
                     .build();
@@ -32,7 +31,7 @@ public abstract class LocationsRoomDB extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-            new LocationsRoomDB.PopulateDataAsyncTask(instance).execute();
+            new PobulateDataAsyncTask(instance).execute();
         }
 
         @Override
@@ -42,22 +41,21 @@ public abstract class LocationsRoomDB extends RoomDatabase {
         }
     };
 
-    private static class PopulateDataAsyncTask extends AsyncTask<Void , Void , Void> {
+    private static class PobulateDataAsyncTask extends AsyncTask<Void , Void , Void>{
 
-        private final LocationsDaoDB mLocationsDaoDB;
+        private final UsersDBdao mUsersDBdao;
 
-        PopulateDataAsyncTask(LocationsRoomDB db){
-            mLocationsDaoDB = db.mlocationsDaoDB();
+        PobulateDataAsyncTask(UsersRoomDB db){
+            mUsersDBdao = db.usersDBdao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            mLocationsDaoDB.insert(new LocationsDB("alhilton" , "A"));
-            mLocationsDaoDB.insert(new LocationsDB("dar alaiman", "B"));
-            mLocationsDaoDB.insert(new LocationsDB("almahkkamh", "C"));
+            mUsersDBdao.insert(new UsersDB("khaled", "OS5000" , "12" ,"monday","SS@S.com"));
+            mUsersDBdao.insert(new UsersDB("Ali", "OS5000" , "10" ,"FriDay","SS@S.com"));
+            mUsersDBdao.insert(new UsersDB("Ahmed", "OS5020" , "11" ,"sunday","SS@S.com"));
             return null;
         }
     }
 
 }
-

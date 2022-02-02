@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.LocationsInfos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,39 +13,49 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.supervisor_.R;
+
 import java.util.List;
 
-public class ListNameItem extends AppCompatActivity {
-
-    private UsersViewModel mUsersViewModel;
-
-
+public class LoactionsList extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private Users_Adapter mUsers_adapter;
+    private Loactions_Adapter mloactions_adapter;
+    private LocationsViewModel mlocationsViewModel;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_name_item);
+        setContentView(R.layout.activity_loactions_list);
 
-        setTitle("List Of Names");
 
-        mRecyclerView = findViewById(R.id.User_Rec);
+
+        setTitle("List Of Location");
+
+        mRecyclerView = findViewById(R.id.Loactions_Rec);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
 
-        mUsers_adapter = new Users_Adapter();
-        mRecyclerView.setAdapter(mUsers_adapter);
+        mloactions_adapter = new Loactions_Adapter();
+        mRecyclerView.setAdapter(mloactions_adapter);
 
-        mUsersViewModel = ViewModelProviders.of(this).get(UsersViewModel.class);
-        mUsersViewModel.getAllUsers().observe(this, new Observer<List<UsersDB>>() {
+        mlocationsViewModel = ViewModelProviders.of(this).get(LocationsViewModel.class);
+        mlocationsViewModel.getAllLocations().observe(this, new Observer<List<LocationsDB>>() {
             @Override
-            public void onChanged(List<UsersDB> usersDBS) {
-                //Update UI
-                //RecyclerView
-                mUsers_adapter.setUsers(usersDBS);
+            public void onChanged(List<LocationsDB> locationsDBS) {
+                mloactions_adapter.setUsers(locationsDBS);
+            }
+        });
+
+        mloactions_adapter.onItemClickListner(new Loactions_Adapter.OnItemclickListner() {
+            @Override
+            public void onItemClick(LocationsDB locationsDB) {
+                Intent i = new Intent(LoactionsList.this, AddLoaction.class);
+                i.putExtra(AddLoaction.EXTRA_ID_L, locationsDB.getIdLocation());
+                i.putExtra(AddLoaction.EXTRA_Loaction, locationsDB.getNameLocation());
+                i.putExtra(AddLoaction.EXTRA_Classification, locationsDB.getClassification());
+                startActivity(i);
             }
         });
 
@@ -59,27 +69,12 @@ public class ListNameItem extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
-                mUsersViewModel.delete(mUsers_adapter.getUserAt(position));
+                mlocationsViewModel.delete(mloactions_adapter.getLocationsAt(position));
 
             }
         }).attachToRecyclerView(mRecyclerView);
 
-        mUsers_adapter.onItemClickListner(new Users_Adapter.OnItemclickListner() {
-            @Override
-            public void onItemClick(UsersDB User) {
-                Intent i = new Intent(ListNameItem.this, AddName.class);
-                i.putExtra(AddName.EXTRA_ID, User.getId());
-                i.putExtra(AddName.EXTRA_NAME, User.getNamedb());
-                i.putExtra(AddName.EXTRA_USER, User.getUserdb());
-                i.putExtra(AddName.EXTRA_SALES, User.getSalesdb());
-                i.putExtra(AddName.EXTRA_DAYOFF, User.getDayOffdb());
-                i.putExtra(AddName.EXTRA_EMAIL, User.getEmaildb());
-                startActivity(i);
-            }
-        });
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -92,7 +87,7 @@ public class ListNameItem extends AppCompatActivity {
 
         if (item.getItemId() == R.id.AddNewName) {
             Intent intent = new Intent();
-            intent.setClass(ListNameItem.this, AddName.class);
+            intent.setClass(LoactionsList.this, AddLoaction.class);
             startActivity(intent);
             return true;
         }

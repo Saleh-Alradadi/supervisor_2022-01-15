@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.supervisor_.LocationsInfos.LoactionsList;
+import com.example.supervisor_.UsersInfos.ListNameItem;
+
 public class MainActivity extends AppCompatActivity {
 
     Button random;
