@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.RandomEmps;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.supervisor_.R;
 import com.example.supervisor_.UsersInfos.UsersDB;
 import com.example.supervisor_.UsersInfos.UsersViewModel;
 

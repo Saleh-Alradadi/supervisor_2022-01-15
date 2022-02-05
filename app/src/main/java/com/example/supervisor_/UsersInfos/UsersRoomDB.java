@@ -9,6 +9,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.supervisor_.LocationsInfos.LocationsDB;
+
 @Database(entities = UsersDB.class , version = 1, exportSchema = false)
 public abstract class UsersRoomDB extends RoomDatabase {
     private static UsersRoomDB instance;

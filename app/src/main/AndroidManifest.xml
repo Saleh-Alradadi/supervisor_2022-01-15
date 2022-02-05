@@ -22,10 +22,10 @@
             android:name=".LocationsInfos.LoactionsList"
             android:exported="false" />
         <activity
-            android:name=".ListAllRandoms"
+            android:name=".RandomEmps.ListAllRandoms"
             android:exported="false" />
         <activity
-            android:name=".ResultRandomName"
+            android:name=".RandomEmps.ResultRandomName"
             android:exported="false" />
         <activity
             android:name=".UsersInfos.ListNameItem"
@@ -34,7 +34,7 @@
             android:name=".UsersInfos.AddName"
             android:exported="false" />
         <activity
-            android:name=".Randoms"
+            android:name=".RandomEmps.Randoms"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

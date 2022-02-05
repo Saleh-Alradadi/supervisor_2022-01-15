@@ -1,4 +1,4 @@
-package com.example.supervisor_;
+package com.example.supervisor_.RandomEmps;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.supervisor_.LocationsInfos.LocationsDB;
 import com.example.supervisor_.LocationsInfos.LocationsViewModel;
+import com.example.supervisor_.R;
 import com.example.supervisor_.UsersInfos.UsersDB;
 import com.example.supervisor_.UsersInfos.UsersViewModel;
 
